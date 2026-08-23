@@ -4,8 +4,8 @@ body{
     font-family:arial, sans-serif;
     background-color:rgb(7, 4, 4);
     color:rgb(241, 234, 234);
-    font-family:playfair display;
-}  
+    font-family: "Cormorant Garamond", serif;
+}
 .hero {
     min-height: 100vh;
     background-size: auto;
@@ -55,7 +55,6 @@ body{
     font-size: large;
     text-align: center;
 }
-
 .gallery {
     display: flex;
     align-items: center;
@@ -65,22 +64,18 @@ body{
     font-size: 25px;
     font-weight: bolder;
 }
-
 .gallery-img {
     flex: 1;
 }
-
 .gallery-img img {
     width:100%;
     max-width: 500px;
     border-radius: 20px;
 }
-
 .gallery-text {
     flex: 1;
     color: white;
 }
-
 .gallery-text h2 {
     font-size: 2.8rem;
     margin-bottom: 20px;
@@ -89,36 +84,116 @@ body{
     font-size: 1.2rem;
     line-height: 1.8;
 }
-nav{
-    background-color:orangered;
-    color:wheat;
-    display:flex;
-    justify-content:space-around;
-    text-align:center;
-    padding:15px 40px;
-    font-weight: bolder;
-    font-weight: lighter;
+nav {
+    min-height: 150px;
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: rgb(187, 55, 7);
+    font-size: 64px;
 }
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
+nav h2 {
+    font-family: "Bodoni Moda", serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin: 0;
 }
-nav a{
-    list-style:none;
-    display:flex;
-    gap:20px; 
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+}
+nav a {
+    font-family: "Bodoni Moda", serif;
+    font-size: 20px;
     text-decoration: none;
-    color: rgb(243, 239, 239);
+    letter-spacing: 1px;
+    transition: 0.3s;
 }
-nav a :hover{
-    text-decoration:none;
-    font-weight:bold;
-    color:white;
+nav a:hover {
+    letter-spacing: 3px;
 }
-nav a :hover{
-    color:rgb(122, 106, 14);
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
+  @media (max-width: 768px){
+    nav {
+        min-height: 70px;
+        padding: 0 20px;
+    }
+    nav h2 {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 25px 0;
+        background-color: rgb(187, 55, 7);
+        z-index: 1000;
+    }
+    nav ul.active {
+        display: flex;
+    }
+  }
+@media (max-width: 768px) {
+    #menu,
+    .category,
+    #menu-catagory {
+        padding: 50px 20px;
+    }
+    .food-row {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding: 20px 10px;
+    }
+    .food-card {
+        flex: 0 0 220px;
+        width: 220px;
+        height: auto;
+        min-height: 330px;
+        padding: 15px;
+        border-radius: 30px;
+    }
+    .food-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .food-card button {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+    }
+    #menu h2,
+    .category h2,
+    #menu-catagory h2 {
+        font-size: 2rem;
+    }
+}
+
 #menu {text-align: center;
     padding: 80px 50px;
 }
