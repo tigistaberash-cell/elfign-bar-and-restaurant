@@ -1,48 +1,70 @@
-// ==========================================
-// ELFIGN BAR & RESTAURANT JAVASCRIPT
-// ==========================================
+// ==================================================
+// ELFIGN BAR & RESTAURANT
+// MAIN JAVASCRIPT
+// ==================================================
 
 
-// ==========================================
-// MOBILE MENU
-// ==========================================
 
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
+// ==================================================
+// MOBILE NAVIGATION
+// ==================================================
+
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const navLinks =
+    document.getElementById("nav-links");
+
 
 if (menuToggle && navLinks) {
 
     menuToggle.addEventListener("click", () => {
+
         navLinks.classList.toggle("active");
+
     });
 
-    // Close menu when a navigation link is clicked
-    const navItems = navLinks.querySelectorAll("a");
+
+    const navItems =
+        navLinks.querySelectorAll("a");
+
 
     navItems.forEach((item) => {
+
         item.addEventListener("click", () => {
+
             navLinks.classList.remove("active");
+
         });
+
     });
+
 }
 
 
-// ==========================================
-// EXPLORE MENU BUTTON
-// ==========================================
 
-const exploreMenuBtn = document.getElementById("orderBtn");
+// ==================================================
+// EXPLORE MENU
+// ==================================================
+
+const exploreMenuBtn =
+    document.getElementById("exploreMenuBtn");
+
 
 if (exploreMenuBtn) {
 
     exploreMenuBtn.addEventListener("click", () => {
 
-        const menuSection = document.getElementById("menu");
+        const menuSection =
+            document.getElementById("menu");
+
 
         if (menuSection) {
+
             menuSection.scrollIntoView({
                 behavior: "smooth"
             });
+
         }
 
     });
@@ -50,42 +72,73 @@ if (exploreMenuBtn) {
 }
 
 
-// ==========================================
+
+// ==================================================
 // SHOPPING CART
-// ==========================================
+// ==================================================
 
 let cart = [];
 
 
-const cartButton = document.getElementById("cartButton");
-const cartModal = document.getElementById("cartModal");
-const closeCart = document.getElementById("closeCart");
 
-const cartItems = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
-const cartCount = document.getElementById("cartCount");
-const clearCart = document.getElementById("clearCart");
+const cartButton =
+    document.getElementById("cartButton");
 
 
-// ==========================================
-// ADD FOOD TO CART
-// ==========================================
+const cartModal =
+    document.getElementById("cartModal");
 
-const orderButtons = document.querySelectorAll(".orderBtn");
 
-orderButtons.forEach((button) => {
+const closeCart =
+    document.getElementById("closeCart");
+
+
+const cartItems =
+    document.getElementById("cartItems");
+
+
+const cartTotal =
+    document.getElementById("cartTotal");
+
+
+const cartCount =
+    document.getElementById("cartCount");
+
+
+const clearCart =
+    document.getElementById("clearCart");
+
+
+const cartSuccess =
+    document.getElementById("cartSuccess");
+
+
+
+// ==================================================
+// ADD TO CART
+// ==================================================
+
+const addToCartButtons =
+    document.querySelectorAll(".add-to-cart");
+
+
+addToCartButtons.forEach((button) => {
 
     button.addEventListener("click", () => {
 
-        const foodCard = button.closest(".food-card");
+
+        const foodCard =
+            button.closest(".food-card");
+
 
         if (!foodCard) return;
 
 
+
         // Get food name
+
         const foodNameElement =
-            foodCard.querySelector("h3") ||
-            foodCard.querySelector("h4");
+            foodCard.querySelector("h3");
 
 
         if (!foodNameElement) return;
@@ -95,7 +148,9 @@ orderButtons.forEach((button) => {
             foodNameElement.textContent.trim();
 
 
+
         // Get price
+
         const priceElement =
             foodCard.querySelector("p");
 
@@ -107,23 +162,44 @@ orderButtons.forEach((button) => {
             priceElement.textContent;
 
 
-        // Extract number from price text
+
+        /*
+         * This handles:
+         *
+         * 200 Birr
+         * 1,000 Birr
+         * 10,000 Birr
+         */
+
         const priceMatch =
-            priceText.match(/\d+/);
+            priceText.match(/[\d,]+/);
 
 
-        let price = 0;
+        if (!priceMatch) {
 
+            alert(
+                "Could not read the food price."
+            );
 
-        if (priceMatch) {
-            price = Number(priceMatch[0]);
+            return;
+
         }
 
 
-        // Check if food is already in cart
-        const existingItem = cart.find(
-            (item) => item.name === foodName
-        );
+        const price =
+            Number(
+                priceMatch[0].replace(/,/g, "")
+            );
+
+
+
+        // Check if item already exists
+
+        const existingItem =
+            cart.find(
+                item => item.name === foodName
+            );
+
 
 
         if (existingItem) {
@@ -133,58 +209,139 @@ orderButtons.forEach((button) => {
         } else {
 
             cart.push({
+
                 name: foodName,
+
                 price: price,
+
                 quantity: 1
+
             });
 
         }
 
 
+
+        // Update cart
+
         updateCart();
 
 
-        // Open cart automatically
-        if (cartModal) {
-            cartModal.style.display = "flex";
-        }
+
+        // Show success
+
+        showCartSuccess();
+
+
+        // Change button temporarily
+
+        const originalText =
+            button.textContent;
+
+
+        button.textContent =
+            "✓ Added Successfully";
+
+
+        button.style.backgroundColor =
+            "#16803c";
+
+
+        button.style.color =
+            "white";
+
+
+        setTimeout(() => {
+
+            button.textContent =
+                originalText;
+
+
+            button.style.backgroundColor =
+                "";
+
+
+            button.style.color =
+                "";
+
+        }, 1200);
 
     });
 
 });
 
 
-// ==========================================
+
+// ==================================================
+// SUCCESS MESSAGE
+// ==================================================
+
+function showCartSuccess() {
+
+    if (!cartSuccess) return;
+
+
+    cartSuccess.classList.add("show");
+
+
+    setTimeout(() => {
+
+        cartSuccess.classList.remove("show");
+
+    }, 2000);
+
+}
+
+
+
+// ==================================================
 // UPDATE CART
-// ==========================================
+// ==================================================
 
 function updateCart() {
 
-    if (
-        !cartItems ||
+
+    if (!cartItems ||
         !cartTotal ||
-        !cartCount
-    ) {
+        !cartCount) {
+
         return;
+
     }
+
 
 
     cartItems.innerHTML = "";
 
 
     let total = 0;
+
     let totalQuantity = 0;
 
 
+
+    // Empty cart
+
     if (cart.length === 0) {
 
-        cartItems.innerHTML =
-            "<p class='empty-cart'>Your cart is empty.</p>";
+        cartItems.innerHTML = `
+
+            <p class="empty-cart">
+
+                Your cart is empty.
+
+            </p>
+
+        `;
 
     }
 
 
+
+    // Create cart items
+
     cart.forEach((item, index) => {
+
 
         const itemTotal =
             item.price * item.quantity;
@@ -192,7 +349,9 @@ function updateCart() {
 
         total += itemTotal;
 
+
         totalQuantity += item.quantity;
+
 
 
         const cartItem =
@@ -202,18 +361,23 @@ function updateCart() {
         cartItem.classList.add("cart-item");
 
 
+
         cartItem.innerHTML = `
 
             <div class="cart-food-info">
 
-                <h4>${item.name}</h4>
+                <h4>
+                    ${item.name}
+                </h4>
 
                 <p>
-                    ${item.price} Birr × ${item.quantity}
+                    ${formatPrice(item.price)}
+                    Birr × ${item.quantity}
                 </p>
 
                 <strong>
-                    ${itemTotal} Birr
+                    ${formatPrice(itemTotal)}
+                    Birr
                 </strong>
 
             </div>
@@ -231,7 +395,9 @@ function updateCart() {
 
 
                 <span class="quantity">
+
                     ${item.quantity}
+
                 </span>
 
 
@@ -262,42 +428,70 @@ function updateCart() {
     });
 
 
-    // Update total price
+
+    // Total
+
     cartTotal.textContent =
-        total + " Birr";
+        formatPrice(total) + " Birr";
 
 
-    // Update cart number
+
+    // Cart number
+
     cartCount.textContent =
         totalQuantity;
 
+
+
+    // Add button events
 
     addCartEvents();
 
 }
 
 
-// ==========================================
-// CART BUTTONS
-// ==========================================
+
+// ==================================================
+// FORMAT PRICE
+// ==================================================
+
+function formatPrice(number) {
+
+    return Number(number).toLocaleString();
+
+}
+
+
+
+// ==================================================
+// CART ITEM BUTTONS
+// ==================================================
 
 function addCartEvents() {
 
 
-    // INCREASE
+    // Increase
+
     const increaseButtons =
-        document.querySelectorAll(".increase-btn");
+        document.querySelectorAll(
+            ".increase-btn"
+        );
 
 
     increaseButtons.forEach((button) => {
 
         button.addEventListener("click", () => {
 
+
             const index =
                 Number(button.dataset.index);
 
 
-            cart[index].quantity++;
+            if (cart[index]) {
+
+                cart[index].quantity++;
+
+            }
 
 
             updateCart();
@@ -307,24 +501,33 @@ function addCartEvents() {
     });
 
 
-    // DECREASE
+
+    // Decrease
+
     const decreaseButtons =
-        document.querySelectorAll(".decrease-btn");
+        document.querySelectorAll(
+            ".decrease-btn"
+        );
 
 
     decreaseButtons.forEach((button) => {
 
         button.addEventListener("click", () => {
 
+
             const index =
                 Number(button.dataset.index);
+
+
+            if (!cart[index]) return;
 
 
             cart[index].quantity--;
 
 
-            // Remove when quantity reaches zero
-            if (cart[index].quantity <= 0) {
+            if (
+                cart[index].quantity <= 0
+            ) {
 
                 cart.splice(index, 1);
 
@@ -338,14 +541,19 @@ function addCartEvents() {
     });
 
 
-    // REMOVE COMPLETELY
+
+    // Remove
+
     const removeButtons =
-        document.querySelectorAll(".remove-btn");
+        document.querySelectorAll(
+            ".remove-btn"
+        );
 
 
     removeButtons.forEach((button) => {
 
         button.addEventListener("click", () => {
+
 
             const index =
                 Number(button.dataset.index);
@@ -363,9 +571,10 @@ function addCartEvents() {
 }
 
 
-// ==========================================
+
+// ==================================================
 // OPEN CART
-// ==========================================
+// ==================================================
 
 if (cartButton && cartModal) {
 
@@ -378,9 +587,10 @@ if (cartButton && cartModal) {
 }
 
 
-// ==========================================
+
+// ==================================================
 // CLOSE CART
-// ==========================================
+// ==================================================
 
 if (closeCart && cartModal) {
 
@@ -393,13 +603,45 @@ if (closeCart && cartModal) {
 }
 
 
-// ==========================================
+
+// ==================================================
+// CLOSE CART BY CLICKING OUTSIDE
+// ==================================================
+
+if (cartModal) {
+
+    cartModal.addEventListener("click", (event) => {
+
+        if (
+            event.target === cartModal
+        ) {
+
+            cartModal.style.display =
+                "none";
+
+        }
+
+    });
+
+}
+
+
+
+// ==================================================
 // CLEAR CART
-// ==========================================
+// ==================================================
 
 if (clearCart) {
 
     clearCart.addEventListener("click", () => {
+
+
+        if (cart.length === 0) {
+
+            return;
+
+        }
+
 
         cart = [];
 
@@ -411,123 +653,420 @@ if (clearCart) {
 }
 
 
-// ==========================================
-// CLOSE CART WHEN CLICKING OUTSIDE
-// ==========================================
 
-window.addEventListener("click", (event) => {
+// ==================================================
+// CREATE ORDER MESSAGE
+// ==================================================
 
-    if (event.target === cartModal) {
+function createOrderMessage() {
 
-        cartModal.style.display = "none";
+
+    // Make sure cart isn't empty
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your cart is empty. Please add food first."
+        );
+
+        return null;
 
     }
 
-});
 
 
-// ==========================================
-// LEARN MORE BUTTON
-// ==========================================
+    // Customer details
 
-const learnMoreBtn =
-    document.getElementById("learnMoreBtn");
-
-
-const learnMoreModal =
-    document.getElementById("learnMoreModal");
+    const customerName =
+        document
+            .getElementById("customerName")
+            .value
+            .trim();
 
 
-const closeLearnMore =
-    document.getElementById("closeLearnMore");
+    const customerPhone =
+        document
+            .getElementById("customerPhone")
+            .value
+            .trim();
 
 
-if (learnMoreBtn && learnMoreModal) {
+    const customerAddress =
+        document
+            .getElementById("customerAddress")
+            .value
+            .trim();
 
-    learnMoreBtn.addEventListener("click", () => {
 
-        learnMoreModal.style.display = "flex";
+
+    // Require name
+
+    if (!customerName) {
+
+        alert(
+            "Please enter your name."
+        );
+
+        document
+            .getElementById("customerName")
+            .focus();
+
+        return null;
+
+    }
+
+
+
+    // Require phone
+
+    if (!customerPhone) {
+
+        alert(
+            "Please enter your phone number."
+        );
+
+        document
+            .getElementById("customerPhone")
+            .focus();
+
+        return null;
+
+    }
+
+
+
+    // Start message
+
+    let message =
+        "🍽️ NEW ORDER - ELFIGN BAR & RESTAURANT\n\n";
+
+
+    message +=
+        "👤 Customer: " +
+        customerName +
+        "\n";
+
+
+    message +=
+        "📞 Phone: " +
+        customerPhone +
+        "\n";
+
+
+
+    if (customerAddress) {
+
+        message +=
+            "📍 Address: " +
+            customerAddress +
+            "\n";
+
+    }
+
+
+
+    message +=
+        "\n🛒 ORDER:\n";
+
+
+
+    let total = 0;
+
+
+
+    cart.forEach((item) => {
+
+
+        const itemTotal =
+            item.price * item.quantity;
+
+
+        total += itemTotal;
+
+
+        message +=
+            "• " +
+            item.name +
+            " × " +
+            item.quantity +
+            " = " +
+            formatPrice(itemTotal) +
+            " Birr\n";
 
     });
+
+
+
+    message +=
+        "\n💰 TOTAL: " +
+        formatPrice(total) +
+        " Birr";
+
+
+
+    return message;
 
 }
 
 
-if (closeLearnMore && learnMoreModal) {
 
-    closeLearnMore.addEventListener("click", () => {
+// ==================================================
+// WHATSAPP ORDER
+// ==================================================
 
-        learnMoreModal.style.display = "none";
+const whatsappOrder =
+    document.getElementById(
+        "whatsappOrder"
+    );
 
-    });
+
+if (whatsappOrder) {
+
+    whatsappOrder.addEventListener(
+        "click",
+        () => {
+
+
+            const message =
+                createOrderMessage();
+
+
+            if (!message) return;
+
+
+
+            const whatsappNumber =
+                "251911591754";
+
+
+
+            const whatsappURL =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                encodeURIComponent(message);
+
+
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }
+    );
 
 }
 
 
-window.addEventListener("click", (event) => {
 
-    if (event.target === learnMoreModal) {
+// ==================================================
+// TELEGRAM ORDER
+// ==================================================
 
-        learnMoreModal.style.display = "none";
+const telegramOrder =
+    document.getElementById(
+        "telegramOrder"
+    );
 
-    }
 
-});
+if (telegramOrder) {
+
+    telegramOrder.addEventListener(
+        "click",
+        async () => {
 
 
-// ==========================================
-// EMAILJS CONTACT FORM
-// ==========================================
+            const message =
+                createOrderMessage();
+
+
+            if (!message) return;
+
+
+
+            try {
+
+
+                await navigator.clipboard
+                    .writeText(message);
+
+
+                alert(
+                    "Your order has been copied. Telegram will open. Paste the order into the chat and send it."
+                );
+
+
+            } catch (error) {
+
+                alert(
+                    "Telegram will open. Please copy your order and send it."
+                );
+
+            }
+
+
+
+            window.open(
+                "https://t.me/teno54",
+                "_blank"
+            );
+
+        }
+    );
+
+}
+
+
+
+// ==================================================
+// INSTAGRAM ORDER
+// ==================================================
+
+const instagramOrder =
+    document.getElementById(
+        "instagramOrder"
+    );
+
+
+if (instagramOrder) {
+
+    instagramOrder.addEventListener(
+        "click",
+        async () => {
+
+
+            const message =
+                createOrderMessage();
+
+
+            if (!message) return;
+
+
+
+            try {
+
+
+                await navigator.clipboard
+                    .writeText(message);
+
+
+                alert(
+                    "Your order has been copied. Instagram will open. Paste the order into a message and send it."
+                );
+
+
+            } catch (error) {
+
+                alert(
+                    "Instagram will open. Please copy your order and send it."
+                );
+
+            }
+
+
+
+            window.open(
+                "https://instagram.com/kebedetenagne",
+                "_blank"
+            );
+
+        }
+    );
+
+}
+
+
+
+// ==================================================
+// CONTACT FORM
+// ==================================================
 
 const form =
-    document.getElementById("contactForm");
+    document.getElementById(
+        "contactForm"
+    );
 
 
 if (form) {
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener(
+        "submit",
+        function (event) {
 
-        event.preventDefault();
+
+            event.preventDefault();
 
 
-        // Check EmailJS exists
-        if (typeof emailjs === "undefined") {
 
-            alert(
-                "Email service is not connected yet."
-            );
+            // Check EmailJS
 
-            return;
+            if (
+                typeof emailjs ===
+                "undefined"
+            ) {
+
+                alert(
+                    "Email service is not connected yet."
+                );
+
+                return;
+
+            }
+
+
+
+            /*
+             * Replace these two values
+             * with your real EmailJS
+             * Service ID and Template ID.
+             */
+
+            emailjs.sendForm(
+
+                "YOUR_SERVICE_ID",
+
+                "YOUR_TEMPLATE_ID",
+
+                this
+
+            )
+
+
+            .then(() => {
+
+
+                alert(
+                    "Message sent successfully!"
+                );
+
+
+                form.reset();
+
+            })
+
+
+            .catch((error) => {
+
+
+                console.log(error);
+
+
+                alert(
+                    "Message failed to send. Please try again."
+                );
+
+            });
 
         }
-
-
-        emailjs.sendForm(
-            "YOUR_SERVICE_ID",
-            "YOUR_TEMPLATE_ID",
-            this
-        )
-        .then(() => {
-
-            alert(
-                "Message sent successfully!"
-            );
-
-
-            form.reset();
-
-        })
-        .catch((error) => {
-
-            alert(
-                "Message failed to send. Please try again."
-            );
-
-
-            console.log(error);
-
-        });
-
-    });
+    );
 
 }
+
+
+
+// ==================================================
+// INITIAL CART
+// ==================================================
+
+updateCart();
