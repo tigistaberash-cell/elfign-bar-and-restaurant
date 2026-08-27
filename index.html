@@ -1,301 +1,1018 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet"href="style.css">
-    </head>
-    <body>
-       <header>
-           <nav>
-    <h2>Elfign Bar & Restaurant</h2>
+<html lang="en">
 
-    <button class="menu-toggle" id="menu-toggle">
-        ☰
-    </button>
+<head>
+    <meta charset="UTF-8">
 
-    <ul id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-            <div class="hero">
-              <div class="hero-text">
-                 <h1>WELCOME TO ELFIGN BAR & RESTAURANT</h1>
-                 <p>ENJOY THE MOST DELICIOUS FOOD THAT MADE WITH FRESH AND LOVE!</p>
-                 <p>Sip</p>
-                 <p>Slurp</p>
-                 <p>Savor Authenticity</p>
-                 <button id="orderBtn">Explore Menu</button>
-              </div>
-              <div class="hero-img">
-                 <img src="hero.jpeg"alt="our restaurant">
-               </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Elfign Bar & Restaurant</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER / NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <nav>
+
+            <h2>Elfign Bar & Restaurant</h2>
+
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Open navigation menu">
+
+                ☰
+
+            </button>
+
+
+            <!-- Navigation Links -->
+            <ul id="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#menu">Menu</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+
+            <!-- Cart Button -->
+            <button
+                id="cartButton"
+                class="cart-button">
+
+                🛒 Cart
+                (<span id="cartCount">0</span>)
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <main>
+
+
+        <section
+            id="home"
+            class="hero">
+
+            <div class="hero-text">
+
+                <h1>
+                    WELCOME TO ELFIGN
+                    BAR & RESTAURANT
+                </h1>
+
+                <p>
+                    ENJOY THE MOST DELICIOUS FOOD
+                    MADE WITH FRESH INGREDIENTS AND LOVE!
+                </p>
+
+                <p>Sip</p>
+
+                <p>Slurp</p>
+
+                <p>Savor Authenticity</p>
+
+
+                <button id="orderBtn">
+
+                    Explore Menu
+
+                </button>
+
             </div>
-        </header>
-      <div class="gallery">
-    <div class="gallery-img">
-        <img src="breakfast.jpg" alt="Breakfast Gallery">
-    </div>
-    <div class="gallery-text">
-        <h2>Breakfast Time</h2>
-        <p>WHERE EVERY BREAKFAST IS SPECIAL!</p>
-        <p>BEST BREAKFAST IN TOWN!</p>
-        <p>START YOUR DAY THE DELICIOUS WAY!</p>
-    </div>
-</div>
-<section id="menu" class="category">
-    <h2>Breakfast menu</h2>
-    <div class="food-row">
-        <div class="food-card">
-            <img src="Enkulal firfir.jpg"alt="enkulal firfir">
-            <h3>Enkulal Firfir</h3>
-            <p>price:200 birr</p>
-            <button class="orderBtn">Order now</button>
-        </div>    
-         <div class="food-card">
-            <img src="Chechebsa.jpg"alt="Chechebsa">
-            <h3>Chechebsa</h3>
-            <p>price:300birr</p>
-            <button class="orderBtn">Order now</button>
-        </div>    
-        <div class="food-card">
-             <img src="kuanta firfir.jpg"alt="kuanta firfir>
-             <h3>Kuanta firfir</h3>
-             <p>price:350 birr</p>
-             <button class="orderBtn">Order now</button>
-        </div>
-        <div class="food-card">
-            <img src="firfir.jpg"alt="firfir">
-            <h3>Firfir</h3>
-            <p>price:200 birr</p>
-           <button class="orderBtn">Order now</button>  
-        </div>  
-        <div class="food-card">
-            <img src="tibs firfir.jpg"alt="tibs firfir">
-              <h4>Tibs firfir</h4>
-               <p>price:250 birr</p>
-               <button class="orderBtn">Order now</button>  
-         </div>   
-        </div> 
-        <div class="gallery">
-        <img src="lunch.jpeg" alt="Lunch">
-        <div class="overlay">
-            <p>EXPERIENCE THE RICH TASTE OF</p>
-            <p>AUTHENTIC YE FIYEL KURT!</p>
-        </div>
-      </div>
-</section>
-<section id="menu catagory">
-       <h2>Lunch Menu</h2>
-           <div class="food-row">
-           <div class="food-card">
-               <img src="Yefiyel-Kurt.jpg.jpg"alt="Yefiyel Kurt">
-               <h4>Yefiyel-Kurt</h4>
-               <p>price by kg:3600 birr</p>
-               <button class="orderBtn">Order now</button> 
+
+
+            <div class="hero-img">
+
+                <img
+                    src="hero.jpeg"
+                    alt="Elfign Bar and Restaurant food">
+
             </div>
-            <div class="food-card">
-            <img src="shekla tibs.jpg"alt="shekla tibs">
-               <h4>Shekla tibs</h4>
-               <p>price by kg:3600 birr</p>
-              <button class="orderBtn">Order now</button>    
-            </div>    
-            <div class="food-card">
-               <img src="Tibs.jpg"alt="tibs">
-               <h4>Tibs</h4>
-               <p>price:400 birr</p>
-               <button class="orderBtn">Order now</button>  
+
+        </section>
+
+
+
+        <!-- =========================
+             BREAKFAST GALLERY
+        ========================== -->
+
+        <section class="gallery">
+
+            <div class="gallery-img">
+
+                <img
+                    src="breakfast.jpg"
+                    alt="Breakfast food">
+
             </div>
-            <div class="food-card">
-               <img src="Shiro.jpg"alt="shiro">
-               <h4>Shiro</h4>
-               <p>price:250 birr</p>
-             <button class="orderBtn">Order now</button>  
-            </div>  
-            <div class="food-card">
-               <img src="Pasta be sugo.jpg"alt="pasta be suga">
-               <h4>Pasta be sigo</h4>
-               <p>price:250 birr</p>
-               <button class="orderBtn">Order now</button>   
+
+
+            <div class="gallery-text">
+
+                <h2>Breakfast Time</h2>
+
+                <p>
+                    WHERE EVERY BREAKFAST IS SPECIAL!
+                </p>
+
+                <p>
+                    BEST BREAKFAST IN TOWN!
+                </p>
+
+                <p>
+                    START YOUR DAY THE DELICIOUS WAY!
+                </p>
+
             </div>
-           <div class="food-card">
-           <img src="Pasta be atikilt.jpg"alt="pasta be atikilt">
-               <h4>Pasta be atikilt</h4>
-               <p>price:250 birr</p>
-               <button class="orderBtn">Order now</button>    
-            </div>
-            <div class="food-card">
-               <img src="Beyaynet.jpg"alt="beyaynet">
-               <h4>Beyaynet</h4>
-               <p>price:250 birr</p>
-               <button class="orderBtn">Order now</button>  
-           </div>
-           </div>   
-</section>
-    <div class="gallery">
-           <img src="hot drinkk.jpeg" alt="Hot Drinks">
-         <div class="gallery-text">
-           <p>EVERY CUP TELLS STORY.</p>
-           <p>WHERE EVERY SIP FEELS LIKE HOME!</p>
-           <P> SIP THE WARMTH</P>
-           <P>SAVOR THE FLAVORS!</P>
-        </div>
-    </div>
-<section id="menu category">
-            <h2>Hot-Drinks</h2>
+
+        </section>
+
+
+
+        <!-- =========================
+             BREAKFAST MENU
+        ========================== -->
+
+        <section
+            id="menu"
+            class="category">
+
+            <h2>Breakfast Menu</h2>
+
+
             <div class="food-row">
-             <div class="food-card">
-               <img src="Coffee.jpg"alt="Coffee">
-               <h4>Coffee</h4>
-               <p>price:40 birr</p>
-               <button class="orderBtn">Order now</button>   
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Enkulal firfir.jpg"
+                        alt="Enkulal Firfir">
+
+                    <h3>Enkulal Firfir</h3>
+
+                    <p>Price: 200 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Chechebsa.jpg"
+                        alt="Chechebsa">
+
+                    <h3>Chechebsa</h3>
+
+                    <p>Price: 300 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="kuanta firfir.jpg"
+                        alt="Kuanta Firfir">
+
+                    <h3>Kuanta Firfir</h3>
+
+                    <p>Price: 350 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="firfir.jpg"
+                        alt="Firfir">
+
+                    <h3>Firfir</h3>
+
+                    <p>Price: 200 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="tibs firfir.jpg"
+                        alt="Tibs Firfir">
+
+                    <h3>Tibs Firfir</h3>
+
+                    <p>Price: 250 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
             </div>
-            <div class="food-card">
-               <img src="Tea.jpg"alt="Tea">
-               <h4>Tea</h4>
-               <p>price:30 birr</p>
-             <button class="orderBtn">Order now</button>   
-            </div>    
-            <div class="food-card">
-               <img src="Macchiato.jpg"alt="Makiato">
-               <h4>Macchiato</h4>
-               <p>price:70 birr</p>
-               <button class="orderBtn">Order now</button> 
+
+        </section>
+
+
+
+        <!-- =========================
+             LUNCH GALLERY
+        ========================== -->
+
+        <section class="gallery">
+
+            <img
+                src="lunch.jpeg"
+                alt="Lunch food">
+
+            <div class="gallery-text">
+
+                <p>
+                    EXPERIENCE THE RICH TASTE OF
+                </p>
+
+                <p>
+                    AUTHENTIC YE FIYEL KURT!
+                </p>
+
             </div>
-            <div class="food-card">
-               <img src="Spris.jpg"alt="sprice">
-               <h4>Spris</h4>
-               <p>price:70 birr</p>
-               <button>Order now</button>  
-            </div>
-    </div>
-    <div class="gallery">
-           <img src="cold drink.jpeg" alt="Cold-Drinks">
-        <div class="gallery-tex">
-           <p>STAY COOL, STAY REFRESHED!</p>
-           <p>POUR!</p>
-           <P>SIP!</P>
-           <P>CHILL!</P>
-        </div>
-     </div>
-</section>
-        <section id="menu-catagory">
-              <h2>Cold-Drinks</h2>
+
+        </section>
+
+
+
+        <!-- =========================
+             LUNCH MENU
+        ========================== -->
+
+        <section class="category">
+
+            <h2>Lunch Menu</h2>
+
+
             <div class="food-row">
-                <div class="food-card">
-               <img src="Beer.jpg"alt="Beer">
-               <h4>Beer</h4>
-               <p>price:70 birr</p>
-               <button class="orderBtn">Order now</button>   
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Yefiyel-Kurt.jpg.jpg"
+                        alt="Yefiyel Kurt">
+
+                    <h3>Yefiyel Kurt</h3>
+
+                    <p>Price: 3600 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="shekla tibs.jpg"
+                        alt="Shekla Tibs">
+
+                    <h3>Shekla Tibs</h3>
+
+                    <p>Price: 3600 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Tibs.jpg"
+                        alt="Tibs">
+
+                    <h3>Tibs</h3>
+
+                    <p>Price: 400 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Shiro.jpg"
+                        alt="Shiro">
+
+                    <h3>Shiro</h3>
+
+                    <p>Price: 250 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Pasta be sugo.jpg"
+                        alt="Pasta be Sugo">
+
+                    <h3>Pasta be Sugo</h3>
+
+                    <p>Price: 250 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Pasta be atikilt.jpg"
+                        alt="Pasta be Atikilt">
+
+                    <h3>Pasta be Atikilt</h3>
+
+                    <p>Price: 250 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Beyaynet.jpg"
+                        alt="Beyaynet">
+
+                    <h3>Beyaynet</h3>
+
+                    <p>Price: 250 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
             </div>
-            <div class="food-card">
-               <img src="gin.jpg"alt="jin">
-               <h4>JIN</h4>
-               <p>price by bottle:10000birr</p>
-               <button class="orderBtn">Order now</button>    
+
+        </section>
+
+
+
+        <!-- =========================
+             HOT DRINKS GALLERY
+        ========================== -->
+
+        <section class="gallery">
+
+            <img
+                src="hot drinkk.jpeg"
+                alt="Hot Drinks">
+
+            <div class="gallery-text">
+
+                <p>EVERY CUP TELLS A STORY.</p>
+
+                <p>
+                    WHERE EVERY SIP FEELS LIKE HOME!
+                </p>
+
+                <p>SIP THE WARMTH</p>
+
+                <p>SAVOR THE FLAVORS!</p>
+
             </div>
-            <div class="food-card">
-               <img src="soft drinks.jpg"alt="soft drinks">
-               <h4>Soft Drinks</h4>
-               <p>price:70 birr</p>
-               <button class="orderBtn">Order now</button>    
+
+        </section>
+
+
+
+        <!-- =========================
+             HOT DRINKS MENU
+        ========================== -->
+
+        <section class="category">
+
+            <h2>Hot Drinks</h2>
+
+
+            <div class="food-row">
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Coffee.jpg"
+                        alt="Coffee">
+
+                    <h3>Coffee</h3>
+
+                    <p>Price: 40 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Tea.jpg"
+                        alt="Tea">
+
+                    <h3>Tea</h3>
+
+                    <p>Price: 30 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Macchiato.jpg"
+                        alt="Macchiato">
+
+                    <h3>Macchiato</h3>
+
+                    <p>Price: 70 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Spris.jpg"
+                        alt="Spris">
+
+                    <h3>Spris</h3>
+
+                    <p>Price: 70 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
             </div>
-            <div class="food-card">
-               <img src="wine.jpg"alt="Wine">
-               <h4>Wine</h4>
-               <p>Price:1000 birr</p>
-               <button class="orderBtn">Order now</button>  
+
+        </section>
+
+
+
+        <!-- =========================
+             COLD DRINKS GALLERY
+        ========================== -->
+
+        <section class="gallery">
+
+            <img
+                src="cold drink.jpeg"
+                alt="Cold Drinks">
+
+            <div class="gallery-text">
+
+                <p>
+                    STAY COOL, STAY REFRESHED!
+                </p>
+
+                <p>POUR!</p>
+
+                <p>SIP!</p>
+
+                <p>CHILL!</p>
+
             </div>
-            <div class="food-card">
-               <img src="draft.jpg"alt="Draft">
-               <h4>Draft</h4>
-               <p>Price:80 birr</p>
-               <button class="orderBtn">Order now</button>  
+
+        </section>
+
+
+
+        <!-- =========================
+             COLD DRINKS MENU
+        ========================== -->
+
+        <section
+            id="cold-drinks"
+            class="category">
+
+            <h2>Cold Drinks</h2>
+
+
+            <div class="food-row">
+
+
+                <article class="food-card">
+
+                    <img
+                        src="Beer.jpg"
+                        alt="Beer">
+
+                    <h3>Beer</h3>
+
+                    <p>Price: 70 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="gin.jpg"
+                        alt="Gin">
+
+                    <h3>Gin</h3>
+
+                    <p>Price: 10000 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="soft drinks.jpg"
+                        alt="Soft Drinks">
+
+                    <h3>Soft Drinks</h3>
+
+                    <p>Price: 70 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="wine.jpg"
+                        alt="Wine">
+
+                    <h3>Wine</h3>
+
+                    <p>Price: 1000 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
+
+
+                <article class="food-card">
+
+                    <img
+                        src="draft.jpg"
+                        alt="Draft drink">
+
+                    <h3>Draft</h3>
+
+                    <p>Price: 80 Birr</p>
+
+                    <button class="orderBtn">
+                        Add to Cart
+                    </button>
+
+                </article>
+
             </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ABOUT SECTION
+        ========================== -->
+
+        <section
+            id="about"
+            class="about">
+
+            <div class="about-image">
+
+                <img
+                    src="cold drink.jpeg"
+                    alt="Elfign Bar and Restaurant">
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h2>
+                    Elfign Bar & Restaurant
+                </h2>
+
+                <p>
+                    We serve authentic Ethiopian
+                    traditional and modern foods
+                    with a variety of drinks.
+                </p>
+
+                <p>
+                    All our foods are made fresh
+                    and with love.
+                </p>
+
+                <p>
+                    Come and enjoy a wonderful
+                    experience with your family
+                    and friends.
+                </p>
+
+                <p>
+                    Our doors are always open for you!
+                </p>
+
+                <button>
+                    Learn More
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACT SECTION
+        ========================== -->
+
+        <section id="contact">
+
+
+            <div class="contact-info">
+
+                <h2>Contact Us</h2>
+
+                <p>
+                    Location: Addis Ababa, Mexico,
+                    Debrework Tower,
+                    in front of Kkare Building
+                </p>
+
+                <p>
+                    Phone: 09 11 59 17 54
+                </p>
+
+                <p>
+                    Email:
+                    elfignbarandrestaurant@gmail.com
+                </p>
+
+
+                <a
+                    id="telegramLink"
+                    href="https://t.me/teno54"
+                    target="_blank">
+
+                    Contact us on Telegram
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Contact Form -->
+            <form
+                id="contactForm"
+                class="text-form">
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    required>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                    required>
+
+                <textarea
+                    name="message"
+                    placeholder="Your message"
+                    required></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer id="footer">
+
+
+        <div class="footer-container">
+
+            <h3>
+                Elfign Bar & Restaurant
+            </h3>
+
+            <p>
+                Thank You For Visiting Us
+            </p>
+
         </div>
- </section>
-<sectio id="about" class="about class">
- <div class="gallery">
-           <img src="cold drink.jpeg" alt="Cold-Drinks">
-        <div class="gallery-text">
-            <h1>Elfign Bar & Restaurant</h1>
-            <p>>We serve Authentic Ethiopian traditional And Modern Foods With Drinks.</p>
-            <p>All our Foods Are Made With Fresh And Love</p>
-            <p>So Come To Our Restourant With Your Families And Freinds.</p>
-            <p>Our Doors Are Open For You!</p>
-            <button>Learn More</button>
+
+
+        <div class="footer-link">
+
+            <a href="#home">Home</a>
+
+            <a href="#menu">Menu</a>
+
+            <a href="#about">About</a>
+
+            <a href="#contact">Contact</a>
+
         </div>
-    </div>      
-</sectio>   
-<section id="contact">
-         <div class="contact-info">
-            <h2>Contact Us</h2>
-            <p>location: Addis Ababa,Mexico, Debrework Tower, Infront of Kkare Building</p>
-            <p>Phone: 09 11 59 17 54</p>
-            <p>Email: elfignbarandrestaurant@gmail.com</p>
-            <a id="telegramLink"href="http://t.me/teno54"target="_blank">
-                Contact us on Telegram</a>
-         </div>
-         <div class="text-form">
-            <input type="text" placeholder="your name">
-            <input type="email" placeholder="your email">
-            <textarea placeholder="your message"></textarea>
-            <button type="submit">Send Message</button>
+
+
+        <div class="footer-contact">
+
+            <a
+                href="tel:+251911591754"
+                title="Call">
+
+                <i class="fa-solid fa-phone"></i>
+
+            </a>
+
+
+            <a
+                href="https://t.me/teno54"
+                target="_blank"
+                title="Telegram">
+
+                <i class="fa-brands fa-telegram"></i>
+
+            </a>
+
+
+            <a
+                href="https://wa.me/251911591754"
+                target="_blank"
+                title="WhatsApp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
+
+            <a
+                href="https://instagram.com/kebedetenagne"
+                target="_blank"
+                title="Instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+
+            <a
+                href="mailto:elfignbarandrestaurant@gmail.com"
+                title="Email">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+
+            <a
+                href="https://maps.google.com/?q=Debrework+Tower+Mexico+Addis+Ababa"
+                target="_blank"
+                title="Location">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+            </a>
+
         </div>
-</section>
-<section id="footer">
-    <div class="footer container">
-        <h3>Restaurant</h3>
-        <p></p>Thank You For Visitig Us</p>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 Elfign Bar & Restaurant.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         SHOPPING CART
+    ========================== -->
+
+    <div
+        id="cartModal"
+        class="cart-modal">
+
+        <div class="cart-content">
+
+            <button
+                id="closeCart"
+                class="close-cart"
+                aria-label="Close cart">
+
+                ×
+
+            </button>
+
+
+            <h2>Your Cart</h2>
+
+
+            <div id="cartItems">
+
+                <!-- Cart items appear here -->
+
+            </div>
+
+
+            <div class="cart-total">
+
+                <h3>
+                    Total:
+                    <span id="cartTotal">
+                        0 Birr
+                    </span>
+                </h3>
+
+            </div>
+
+
+            <button
+                id="clearCart"
+                class="clear-cart">
+
+                Clear Cart
+
+            </button>
+
+        </div>
+
     </div>
-    <div class="footer-link">
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </div>
-<div class="footer-contact">
-    <h3>Get in Touch</h3>
 
-    <a href="tel:+251911591754" title="Call">
-        <i class="fa-solid fa-phone"></i></a>
 
-    <a href="https://t.me/teno54" target="_blank" title="Telegram">
-        <i class="fa-brands fa-telegram"></i></a>
 
-    <a href="https://wa.me/251911591754" target="_blank" title="WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i></a>
+    <!-- =========================
+         EMAILJS
+    ========================== -->
 
-    <a href="https://instagram.com/your_username" target="_blank" title="Instagram">
-        <i class="fa-brands fa-instagram"></i></a>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js">
+    </script>
 
-    <a href="mailto:elfignbarandrestaurant@gmail.com" title="Email">
-        <i class="fa-solid fa-envelope"></i></a>
 
-    <a href="https://maps.google.com/?q=Debrework+Tower+Mexico+Addis+Ababa" target="_blank" title="Location">
-        <i class="fa-solid fa-location-dot"></i></a>
-</div>
-    <div class="copyright">
-        <p>2026 Elfign Bar & Restaurant.All Right Reserved</p>
-    </div>
-</section>
-<div id="orderModal" class="modal">
-    <div class="modal-content">
-        <h3>Choose how to order</h3>
-        <a href="https://wa.me/251911591754" target="_blank">WhatsApp</a>
-        <a href="https://t.me/teno54" target="_blank">Telegram</a>
-        <a href="https://instagram.com/kebedetenagne" target="_blank">Instagram</a>
-        <a href="tel:+251911591754">Call Now</a>
-        <button id="closeModal">Cancel</button>
-    </div>
-</div>
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
+
+
 </body>
+
 </html>
- 
